@@ -1,4 +1,11 @@
-#importing other functions 
+#importanting sysargs
+import sys 
+
+if len(sys.argv) != 2:
+    print("Usage: python3 main.py <path_to_book>")
+    sys.exit(1)
+
+#importing stat functions 
 from stats import word_count
 from stats import character_count
 from stats import sorter
@@ -13,7 +20,7 @@ def get_book_text(path):
 def main(): 
 
     #establishing path for bookbot to find books in 
-    path = "books/frankenstein.txt"
+    path = sys.argv[1]
     
     # retrieving text 
     text = get_book_text(path)
@@ -38,5 +45,5 @@ def main():
     print("============= END ===============")
 
     #print(text)
-    
+
 main()
